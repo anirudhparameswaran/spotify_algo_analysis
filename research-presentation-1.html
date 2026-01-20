@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Presentation - Group C Week 3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .presentation-container {
+            width: 100%;
+            max-width: 1200px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            padding: 60px;
+            min-height: 600px;
+            animation: fadeIn 0.5s;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #764ba2;
+            font-size: 2em;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .principle-box, .question-box, .removed-box, .genre-box {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .principle-box:hover, .question-box:hover, .removed-box:hover, .genre-box:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .removed-box {
+            border-left-color: #e74c3c;
+            background: #fef5f5;
+        }
+
+        .genre-box {
+            border-left-color: #27ae60;
+        }
+
+        ul {
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .mvp-section {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .genre-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 60px;
+            background: #f8f9fa;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .slide-indicator {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        strong {
+            color: #764ba2;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Slide 1: Title -->
+        <div class="slide active">
+            <h1>🎵 Spotify Recommendation Algorithm Research</h1>
+            <h2 style="text-align: center; border: none; margin-top: 50px;">Group C - Week 3 Report</h2>
+            <div style="text-align: center; margin-top: 100px; font-size: 1.2em; color: #666;">
+                <p>Research Questions & Genre Selection</p>
+                <p style="margin-top: 20px;">📊 Algorithmic Mechanisms Analysis</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Principles Overview -->
+        <div class="slide">
+            <h2>Principles for Selecting Research Questions</h2>
+            <div class="principle-box">
+                <h3>🎯 1. Focus on Core Mechanisms</h3>
+                <ul>
+                    <li><strong>Content-driven mechanism:</strong> Audio and genre characteristics</li>
+                    <li><strong>User-driven mechanism:</strong> Listener profiles and past behavior</li>
+                    <li><span class="highlight">First-song effect:</span> Algorithm infers preferences from initial input</li>
+                    <li><span class="highlight">Personalized recommendation:</span> Adapts output by user attributes</li>
+                </ul>
+            </div>
+            <div class="principle-box">
+                <h3>📁 2. Feasibility and Data Accessibility</h3>
+                <ul>
+                    <li>Spotify Web API provides key features directly</li>
+                    <li>Low-dimensional, standardized feature set</li>
+                    <li>No complex data scraping required</li>
+                    <li>Practical execution and reproducibility</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 3: Scientific Value -->
+        <div class="slide">
+            <h2>Scientific and Social Value</h2>
+            <div class="principle-box">
+                <h3>🔬 3. Scientific & Social Value</h3>
+                <p style="margin: 15px 0;"><strong>Recent research focuses on three major directions:</strong></p>
+                <ul>
+                    <li><strong>Algorithmic Transparency and Bias</strong><br>
+                    Exploring whether systems amplify certain genres or demographic patterns</li>
+                    <li><strong>Personalization-Diversity Trade-off</strong><br>
+                    Balancing individual preferences with content variety</li>
+                    <li><strong>Context and First-Song Effect</strong><br>
+                    How initial choices shape subsequent recommendations</li>
+                </ul>
+                <div style="margin-top: 25px; padding: 15px; background: #e8f4f8; border-radius: 8px;">
+                    <strong>Our contribution:</strong> Revealing how Spotify predicts preferences from early inputs and adjusts recommendations at the individual level
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Selected Questions -->
+        <div class="slide">
+            <h2>✅ Selected Research Questions</h2>
+            <div class="question-box">
+                <h3>Question 1: First-Song Effect</h3>
+                <p><strong>How does the genre or audio features of the first selected songs affect the recommended songs genres?</strong></p>
+                <div class="mvp-section">
+                    <p><strong>Minimum Viable Features (MVP):</strong></p>
+                    <ul>
+                        <li><strong>Starting song features:</strong> track_id, artist_id, genre</li>
+                        <li><strong>Audio features:</strong> valence, energy, danceability, tempo, acousticness, instrumentalness, loudness</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="question-box">
+                <h3>Question 2: User Personalization</h3>
+                <p><strong>How does user information such as age and gender affect the recommended songs?</strong></p>
+                <div class="mvp-section">
+                    <p><strong>Minimum Viable Features (MVP):</strong></p>
+                    <ul>
+                        <li><strong>User profile:</strong> age, gender (simulated via test accounts)</li>
+                        <li><strong>Recommendation outputs:</strong> track_id, artist_id, genre, audio features</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Removed Questions -->
+        <div class="slide">
+            <h2>❌ Removed Questions</h2>
+            <div class="removed-box">
+                <h3>Device Type & Account Type</h3>
+                <p><strong>Question:</strong> Does recommendation differ by device (mobile, desktop, speaker) or account type (Free vs. Premium)?</p>
+                <p style="margin-top: 10px;"><strong>Reason for removal:</strong></p>
+                <ul>
+                    <li>Manual data collection required for mobile and smart speakers</li>
+                    <li>Time and energy consuming</li>
+                    <li>No resources for premium accounts</li>
+                </ul>
+            </div>
+            <div class="removed-box">
+                <h3>Contextual Factors</h3>
+                <p><strong>Question:</strong> Do time of day, weekday, or special occasions affect recommendations?</p>
+                <p style="margin-top: 10px;"><strong>Reason for removal:</strong></p>
+                <ul>
+                    <li>Increases study complexity</li>
+                    <li>Introduces uncontrollable confounding variables (mood, location)</li>
+                    <li>Limited data collection period</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 6: Social Network -->
+        <div class="slide">
+            <h2>❌ Removed Questions (continued)</h2>
+            <div class="removed-box">
+                <h3>Social Network Influence</h3>
+                <p><strong>Question:</strong> Does a user's social network or friends' listening behavior influence their Spotify recommendations?</p>
+                <p style="margin-top: 10px;"><strong>Reason for removal:</strong></p>
+                <ul>
+                    <li>Greatly increases workload (requires more accounts)</li>
+                    <li>Artificial friendships between test accounts lack authenticity</li>
+                    <li>Missing: messaging, long-term history, interactive behavior</li>
+                    <li>Cannot reflect real user social interactions</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 7: Genre Selection Process -->
+        <div class="slide">
+            <h2>🎼 Selecting 5 Genres</h2>
+            <h3>Data Sources Evaluated:</h3>
+            <div class="genre-box">
+                <p><strong>✅ Selected Source:</strong> 15 main genres with 5,680 subgenres</p>
+                <ul>
+                    <li>Already in JSON format</li>
+                    <li>Each subgenre mapped to main genres</li>
+                    <li>Easy to use and sufficient coverage</li>
+                </ul>
+            </div>
+            <div class="genre-box">
+                <p><strong>⚠️ Alternative Source:</strong> 6,200 subgenres from everynoise.com</p>
+                <ul>
+                    <li>Contains genre similarity information</li>
+                    <li>Requires web scraping (not in JSON/CSV)</li>
+                    <li>Related research paper links are dead</li>
+                </ul>
+            </div>
+            <div style="margin-top: 25px; padding: 15px; background: #fff3cd; border-radius: 8px;">
+                <strong>Challenge:</strong> Without genre similarity data, manual grouping of 15 main genres into 5 parent genres was necessary
+            </div>
+        </div>
+
+        <!-- Slide 8: 5 Selected Genres -->
+        <div class="slide">
+            <h2>🎵 The 5 Selected Genre Categories</h2>
+            <div class="genre-box">
+                <h3>1. Pop & Mainstream</h3>
+                <p><strong>Includes:</strong> Pop, Easy listening, New age, Latin (1,747 subgenres)</p>
+                <p>Melody-driven, broad commercial appeal, playlist-oriented</p>
+            </div>
+            <div class="genre-box">
+                <h3>2. Urban & Contemporary</h3>
+                <p><strong>Includes:</strong> Hip Hop, R&B (619 subgenres)</p>
+                <p>Rhythm-focused, vocal production, contemporary urban trends</p>
+            </div>
+            <div class="genre-box">
+                <h3>3. Electronic & Beat-Based</h3>
+                <p><strong>Includes:</strong> Electronic (525 subgenres)</p>
+                <p>Production/texture-centric, dance/club culture</p>
+            </div>
+        </div>
+
+        <!-- Slide 9: More Genres -->
+        <div class="slide">
+            <h2>🎵 The 5 Selected Genre Categories (continued)</h2>
+            <div class="genre-box">
+                <h3>4. Rock & Heavy / Guitar-Oriented</h3>
+                <p><strong>Includes:</strong> Rock, Metal (1,342 subgenres)</p>
+                <p>Guitar/band-driven, live performance emphasis, album-oriented</p>
+            </div>
+            <div class="genre-box">
+                <h3>5. Roots, Jazz & Classical Traditions</h3>
+                <p><strong>Includes:</strong> Country, Folk/Acoustic, Blues, Jazz, Classical, World/Traditional (1,447 subgenres)</p>
+                <p>Instrumental/folk traditions, historical lineage, musicianship emphasis</p>
+            </div>
+            <div style="margin-top: 25px; padding: 15px; background: #e8f4f8; border-radius: 8px;">
+                <strong>Grouping Logic:</strong> Captures the "heritage/traditional/serious-music" side of listening
+            </div>
+        </div>
+
+        <!-- Slide 10: Genre Statistics -->
+        <div class="slide">
+            <h2>📊 Genre Distribution Statistics</h2>
+            <div class="genre-stats">
+                <div class="stat-card">
+                    <div>Pop & Mainstream</div>
+                    <div class="stat-number">1,747</div>
+                    <div>subgenres</div>
+                </div>
+                <div class="stat-card">
+                    <div>Urban & Contemporary</div>
+                    <div class="stat-number">619</div>
+                    <div>subgenres</div>
+                </div>
+                <div class="stat-card">
+                    <div>Electronic & Beat-Based</div>
+                    <div class="stat-number">525</div>
+                    <div>subgenres</div>
+                </div>
+                <div class="stat-card">
+                    <div>Rock & Heavy</div>
+                    <div class="stat-number">1,342</div>
+                    <div>subgenres</div>
+                </div>
+                <div class="stat-card">
+                    <div>Roots, Jazz & Classical</div>
+                    <div class="stat-number">1,447</div>
+                    <div>subgenres</div>
+                </div>
+                <div class="stat-card" style="background: linear-gradient(135deg, #27ae60 0%, #229954 100%);">
+                    <div>Total Coverage</div>
+                    <div class="stat-number">5,680</div>
+                    <div>subgenres</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Summary -->
+        <div class="slide">
+            <h2>📝 Summary</h2>
+            <div class="principle-box">
+                <h3>Research Focus</h3>
+                <ul>
+                    <li>✅ <strong>2 Selected Questions:</strong> First-song effect & User personalization</li>
+                    <li>✅ <strong>5 Genre Categories:</strong> Comprehensive coverage of 5,680 subgenres</li>
+                    <li>✅ <strong>Feasible Data Collection:</strong> Spotify Web API + test accounts</li>
+                </ul>
+            </div>
+            <div class="principle-box">
+                <h3>Next Steps</h3>
+                <ul>
+                    <li>🔹 Create test accounts with varying demographics</li>
+                    <li>🔹 Select representative starting songs from each genre</li>
+                    <li>🔹 Develop data collection pipeline</li>
+                    <li>🔹 Begin systematic recommendation gathering</li>
+                </ul>
+            </div>
+            <div style="text-align: center; margin-top: 40px; font-size: 1.3em; color: #667eea;">
+                <strong>Ready to explore Spotify's algorithmic mechanisms! 🎵</strong>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+            <div class="slide-indicator">
+                <span id="slideNumber">1</span> / <span id="totalSlides">11</span>
+            </div>
+            <button id="nextBtn" onclick="changeSlide(1)">Next →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        document.getElementById('totalSlides').textContent = totalSlides;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            
+            document.getElementById('slideNumber').textContent = currentSlide + 1;
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+        });
+
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+</html>

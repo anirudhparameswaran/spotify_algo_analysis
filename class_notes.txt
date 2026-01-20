@@ -1,0 +1,16 @@
+1. What do we know / have already at hand? -> moodle
+2. Variables we have
+Flaws of data
+Clean data, missing value imputation
+
+3. *Discussion of quality of data*
+
+4. Visualizations, descriptive analysis
+
+5. Research questions
+RQ1 - braoder
+RQ2 - narrow
+
+6. Methods
+choosing suitable Methods
+Feature variable selection
