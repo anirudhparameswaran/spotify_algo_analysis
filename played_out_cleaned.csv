@@ -1,4 +1,4 @@
-,position,played_at,duration_ms,explicit,track_id,track_name,popularity,first_genre,user,gender,age,accousticness,danceability,energy,instrumentalness,key,liveness,loudness,mode,speechiness,tempo,valence,artist
+,position,played_at,duration_ms,explicit,track_id,track_name,popularity,first_genre,user,gender,age,acousticness,danceability,energy,instrumentalness,key,liveness,loudness,mode,speechiness,tempo,valence,artist
 0,0,2025-10-1T01:00:00:000Z,383972,False,7p6oXzBSPAXXz8Xb8gBPki,Subzero - Original Mix,45,3,19befa2d20a544b3819a1236cf7536c4_Harsh1,F,20,0.588,0.793,0.608,0.861,6.0,0.0991,-11.638,0.0,0.0673,124.988,0.118,Ben Klock
 1,0,2025-10-1T01:00:00:000Z,315426,False,40gRh2ZURv5tYBo8yB9Lu3,"Piano Sonata No. 14 in C-Sharp Minor, Op. 27 No. 2 ""Moonlight"": I. Adagio sostenuto",70,5,df734b2f512a4a46ab6ed07e3b948f45_Yanyi2005,M,20,,,,,,,,,,,,"Ludwig van Beethoven, Paul Lewis"
 2,0,2025-10-1T01:00:00:000Z,254200,False,3ENHpbTuY72FukZbwGP6bc,Tear Away,67,4,d78a185d41ba4097b0601c57ca3dcfd0_Monika_01,F,40,0.00055,0.611,0.648,0.0028,0.0,0.0846,-4.579,1.0,0.0441,132.983,0.457,Drowning Pool

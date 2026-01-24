@@ -36,7 +36,8 @@ df['artist'] = df['track.artists'].apply(get_artist)
 # drop the original 'track.artists' column
 df.drop(columns = ['track.artists'], inplace=True)
 
-df.rename(columns={'track.duration_ms':'duration_ms', 'track.explicit':'explicit', 'track.id':'track_id', 'track.name':'track_name', 'track.popularity':'popularity'}, inplace=True)
+df.rename(columns={'track.duration_ms':'duration_ms', 'track.explicit':'explicit', 'track.id':'track_id', 'track.name':'track_name', 'track.popularity':'popularity',
+                'accousticness':'acousticness'}, inplace=True)
 df.to_csv('played_out_cleaned.csv')
 df.head()
 
