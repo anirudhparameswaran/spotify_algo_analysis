@@ -1,0 +1,6 @@
+first_genre,popularity,acousticness,danceability,energy,instrumentalness,liveness,loudness,speechiness,tempo,valence,key,mode,genre_label
+1,-0.1956,-0.3864,0.1439,0.2384,-0.4937,0.2389,0.404,-0.3486,0.6837,0.6806,5.0,0.0,Pop & Mainstream
+2,-0.0641,-0.8049,0.7881,0.4474,-0.5132,-0.9046,0.2101,-0.192,0.918,1.8051,3.0,0.0,Urban & Contemporary
+3,-0.656,-0.0449,0.4753,0.7552,0.7301,0.5012,0.1792,-0.3579,0.124,-0.9627,6.0,0.0,Electronic & Beat-Based
+4,0.0017,-0.8578,0.4938,0.1638,-0.5091,-0.2874,0.6017,-0.5036,0.3347,1.0493,0.0,1.0,Rock & Heavy
+5,-4.4701,1.3864,-0.0603,-1.2652,-0.5132,-0.3657,-0.5381,-0.5811,0.1429,0.8325,1.0,1.0,"Roots, Jazz & Classical Traditions"
